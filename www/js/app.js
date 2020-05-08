@@ -1,3 +1,10 @@
 'use strict';
 
-console.log('Hello');
+$('#update').on('click', showForm);
+
+function showForm() {
+  $('#update-task-form').show();
+  $('#update').hide();
+  $('#bookInfo').hide();
+  $('#delete').hide();
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <%- include('../../partial/head') %>
+  <title>Book App</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../../partial/nav') %>
+  </header>
+  <h1>Best Books</h1>
+  <h2>Search Results</h2>
+  <main>
+    <ul>
+      <% books.forEach( book => { %>
+      <li>
+        <div class="book">
+
+          <img class="image" src="<%= book.image_url %>" alt="<%= book.title %>" />
+          <p class="title">Title: <%= book.title %></p>
+          <p class="authors">Author: <%= book.author %></p>
+          <p class="isbn">ISBN: <%= book.isbn %></p>
+          <p> Description: <%= book.description %></p>
+
+          <form method="post" action="/books">
+            <input type="hidden" name="image_url" value="<%= book.image_url %>">
+            <input type="hidden" name="title" value="<%= book.title %>">
+            <input type="hidden" name="author" value="<%= book.author %>">
+            <input type="hidden" name="isbn" value="<%= book.isbn %>">
+            <input type="hidden" name="description" value="<%= book.description %>">
+            <button class="button" type="submit">Add to your bookshelf</button>
+          </form>
+        </div>
+      </li>
+      <% }) %>
+    </ul>
+  </main>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+  <%- include('../partial/head') %>
+  <title>Book App</title>
+</head>
+
+<body>
+  <header>
+    <%- include('../partial/nav') %>
+  </header>
+
+  <main>
+    <% books.forEach ( book => { %>
+      <ul>
+        <li>
+          <img src="<%= book.image_url %>">
+          <%= book.title %>
+          <%= book.author %>
+          <%= book.isbn %>
+          <%= book.description %>
+          <%= book.bookshelf %>
+          <%= book.listPrice %>
+
+          
+          <form class="add-book-form" method="get" action="addbook/<%= book.id %>">
+            <button class="update" type="submit">Add Book</button>
+          </form>
+        </li>
+      </ul>
+      <% }) %>
+  </main>
+
+  <footer>&copy; 2020 Natalie Sinner and Bhagirath Bhatt</footer>
+</body>
+
+</html>
